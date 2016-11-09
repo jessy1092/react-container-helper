@@ -1,0 +1,9 @@
+# node
+node_modules/
+*.log
+
+# transpile file
+lib/
+
+# gulpfile is transpile from gulpfile.babel.js
+gulpfile.js

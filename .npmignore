@@ -1,0 +1,12 @@
+# node
+node_modules/
+
+# Else
+.editorconfig
+.travis.yml
+.babelrc
+*.log
+
+# Use Transpile file for publish
+src/
+gulpfile.babel.js
