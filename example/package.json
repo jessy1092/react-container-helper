@@ -1,0 +1,53 @@
+{
+  "name": "react-container-helper-example",
+  "description": "Help to generate react container component easily and functionally",
+  "version": "0.1.0",
+  "keywords": [
+    "react",
+    "react container",
+    "react-container",
+    "react container component",
+    "container component"
+  ],
+  "contributor": [
+    {
+      "name": "Lee",
+      "email": "jessy1092@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jessy1092/react-container-helper"
+  },
+  "bugs": {
+    "url": "https://github.com/jessy1092/react-container-helper/issues"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --inline --hot"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.5.3",
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-react-hmre": "^1.1.1",
+    "babel-preset-stage-3": "^6.17.0",
+    "css-loader": "^0.25.0",
+    "html-webpack-plugin": "^2.24.1",
+    "postcss-loader": "^1.1.1",
+    "style-loader": "^0.13.1",
+    "webpack": "2.1.0-beta.25",
+    "webpack-dev-server": "2.1.0-beta.10"
+  }
+}

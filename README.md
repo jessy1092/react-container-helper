@@ -21,6 +21,8 @@ Inspire by
 
 ## Full Example
 
+You can see the simple example on [example](./example)
+
 ```js
 import {contain} from 'react-container-helper';
 
