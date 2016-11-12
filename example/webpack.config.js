@@ -12,8 +12,8 @@ export default {
       'webpack-hot-middleware/client',
       'babel-polyfill',
       'react-dom',
-      'react'
-    ]
+      'react',
+    ],
   },
   output: {
     path: path.join(__dirname, '_public'),
@@ -25,32 +25,32 @@ export default {
     new webpack.optimize.CommonsChunkPlugin('common', 'common.bundle.js'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new HtmlWebpackPlugin({template: './index.html'})
+    new HtmlWebpackPlugin({ template: './index.html' }),
   ],
   module: {
     loaders: [{
       test: /\.js?$/,
       include: [
         path.join(__dirname, '../src'),
-        path.join(__dirname)
+        path.join(__dirname),
       ],
       exclude: path.join(__dirname, 'node_modules'),
       loaders: ['react-hot', 'babel'],
     }, {
       test: /\.css$/,
       include: [
-        path.join(__dirname)
+        path.join(__dirname),
       ],
-      loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss'
-    }]
+      loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss',
+    }],
   },
-  postcss: function() {
-    return [autoprefixer()];
-  },
+  postcss: () => ([
+    autoprefixer(),
+  ]),
   resolveLoader: {
-    root: path.join(__dirname, "node_modules")
+    root: path.join(__dirname, 'node_modules'),
   },
   node: {
-    fs: 'empty'
-  }
+    fs: 'empty',
+  },
 };
