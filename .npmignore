@@ -10,3 +10,4 @@ node_modules/
 # Use Transpile file for publish
 src/
 gulpfile.babel.js
+example/
