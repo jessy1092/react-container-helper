@@ -1,12 +1,23 @@
 
 import React from 'react';
 
+const defaultLifecycle = {
+  componentWillMount: () => {},
+  componentDidMount: () => {},
+  componentWillReceiveProps: () => {},
+  shouldComponentUpdate: () => true,
+  componentWillUpdate: () => {},
+  componentDidUpdate: () => {},
+  componentWillUnmount: () => {},
+};
+
 export const contain = (
-  initState, mapStateToProps, mapSetStateToProps,
+  initState, mapStateToProps, mapSetStateToProps, setLifecycle,
 ) => (
   Component,
 ) => {
   const displayName = Component.displayName || Component.name || 'Component';
+  const componentLifecycle = Object.assign({}, defaultLifecycle, setLifecycle());
 
   class ContainerComponent extends React.Component {
 
@@ -15,6 +26,38 @@ export const contain = (
       this.state = initState();
 
       this.setState = this.setState.bind(this);
+    }
+
+    componentWillMount() {
+      componentLifecycle.componentWillMount(this.state, this.props);
+    }
+
+    componentDidMount() {
+      componentLifecycle.componentDidMount(this.setState, this.state, this.props);
+    }
+
+    componentWillReceiveProps(nextProps) {
+      componentLifecycle.componentWillReceiveProps(
+        nextProps, this.setState, this.state,
+      );
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+      return componentLifecycle.shouldComponentUpdate(nextProps, nextState);
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+      componentLifecycle.componentWillUpdate(nextProps, nextState);
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+      componentLifecycle.componentDidUpdate(
+        prevProps, prevState, this.setState, this.state, this.props,
+      );
+    }
+
+    componentWillUnmount() {
+      componentLifecycle.componentWillUnmount(this.state, this.props);
     }
 
     render() {
