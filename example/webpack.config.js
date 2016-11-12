@@ -1,15 +1,15 @@
-"use strict";
 
-let path              = require('path');
-let webpack           = require('webpack');
-let autoprefixer      = require('autoprefixer');
-let HtmlWebpackPlugin = require('html-webpack-plugin');
+import path              from 'path';
+import webpack           from 'webpack';
+import autoprefixer      from 'autoprefixer';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = {
+export default {
   devtool: 'cheap-module-eval-source-map',
   entry: {
     main: './index.js',
     common: [
+      'webpack-hot-middleware/client',
       'babel-polyfill',
       'react-dom',
       'react'
@@ -19,61 +19,38 @@ module.exports = {
     path: path.join(__dirname, '_public'),
     filename: '[name].bundle.js',
     chunkFilename: '[chunkhash].chunk.js',
+    publicPath: '',
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({name: ['common', 'manifest']}),
+    new webpack.optimize.CommonsChunkPlugin('common', 'common.bundle.js'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({template: './index.html'})
   ],
   module: {
-    rules: [{
+    loaders: [{
       test: /\.js?$/,
       include: [
         path.join(__dirname, '../src'),
-        path.join(__dirname, './index.js')
+        path.join(__dirname)
       ],
-      loader: 'babel-loader',
-      options: {
-        presets: [
-          require.resolve('babel-preset-react-hmre'),
-          ['es2015', {'modules': false}],
-          'react',
-          'stage-3'
-        ]
-      }
+      exclude: path.join(__dirname, 'node_modules'),
+      loaders: ['react-hot', 'babel'],
     }, {
       test: /\.css$/,
       include: [
-        path.join(__dirname, './')
+        path.join(__dirname)
       ],
-      use: [
-        {
-          loader: 'style-loader'
-        },
-        {
-          loader: 'css-loader',
-          options: {
-            modules: true,
-            importLoaders: 1,
-            localIdentName: '[name]__[local]___[hash:base64:5]'
-          }
-        },
-        {
-          loader: 'postcss-loader',
-          options: {
-            plugins: () => [
-              require('autoprefixer')
-            ]
-          }
-        },
-      ]
+      loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss'
     }]
   },
-  resolve: {
-    modules: [
-      'node_modules'
-    ],
-    extensions: [".js", ".json", ".jsx", ".css"]
+  postcss: function() {
+    return [autoprefixer()];
+  },
+  resolveLoader: {
+    root: path.join(__dirname, "node_modules")
+  },
+  node: {
+    fs: 'empty'
   }
 };
