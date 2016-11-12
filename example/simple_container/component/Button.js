@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import { contain } from '../../src';
+import { contain } from '../../../src';
 
 import style from './Button.css';
 
