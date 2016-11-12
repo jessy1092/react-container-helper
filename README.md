@@ -96,22 +96,22 @@ ReactDOM.render(
 
 #### Arguments
 
-- [`initState()`] (*Function*): Use to set container initial state
-- [`mapStateToProps(state, props)`] (*Function*): Help to map container's state to component's properties
-- [`mapSetStateToProps(setState, state, props)`] (*Function*): Help to map container's setState to component's method properties
-- [`setLifecycle()`] (*Function*): Help to set container's lifecycle. Return the lifecycle object
+- [`initState()`]\(*Function*): Use to set container initial state
+- [`mapStateToProps(state, props)`]\(*Function*): Help to map container's state to component's properties
+- [`mapSetStateToProps(setState, state, props)`]\(*Function*): Help to map container's setState to component's method properties
+- [`setLifecycle()`]\(*Function*): Help to set container's lifecycle. Return the lifecycle object
 
 #### Container's Lifecycle
 
 Please use the `setLifecycle` to set and return the lifecycle object which define the lifecycle function.
 
-- [`componentWillMount(state, props)`] (*Function*): Will be called on [container will mount](https://facebook.github.io/react/docs/react-component.html#componentwillmount). `state` and `props` is the current container's value
-- [`componentDidMount(setState, state, props)`] (*Function*): Will be called on [container did mount](https://facebook.github.io/react/docs/react-component.html#componentdidmount). `state` and `props` is the current container's value. You can use `setState` to change the container's state
-- [`componentWillReceiveProps(nextProps, setState, state)`] (*Function*): Will be called on [container will receive properties](https://facebook.github.io/react/docs/react-component.html#componentwillreceiveprops). `nextProps` is the next properties `state` is the current container's value. You can use `setState` to change the container's state
-- [`shouldComponentUpdate(nextProps, nextState)`] (*Function*): Use to check [container should update](https://facebook.github.io/react/docs/react-component.html#shouldcomponentupdate) or not. `nextProps` and `nextState` is the next container's value
-- [`componentWillUpdate(nextProps, nextState)`] (*Function*): Will be called on [container will update](https://facebook.github.io/react/docs/react-component.html#componentwillupdate). `nextProps` and `nextState` is the next container's value
-- [`componentDidUpdate(prevProps, prevState, setState, curState, curProps)`] (*Function*): Will be called on [container did update](https://facebook.github.io/react/docs/react-component.html#componentdidupdate). `prevProps` and `prevState` is the preview container's value. Also transmit the `currState`, `curProps` for usage. You can use `setState` to change the container's state
-- [`componentWillUnmount(state, props)`] (*Function*): Will be called on [container will unmount](https://facebook.github.io/react/docs/react-component.html#componentwillunmount). `state` and `props` is the current container's value. Help you to clearup container.
+- [`componentWillMount(state, props)`]\(*Function*): Will be called on [container will mount](https://facebook.github.io/react/docs/react-component.html#componentwillmount). `state` and `props` is the current container's value
+- [`componentDidMount(setState, state, props)`]\(*Function*): Will be called on [container did mount](https://facebook.github.io/react/docs/react-component.html#componentdidmount). `state` and `props` is the current container's value. You can use `setState` to change the container's state
+- [`componentWillReceiveProps(nextProps, setState, state)`]\(*Function*): Will be called on [container will receive properties](https://facebook.github.io/react/docs/react-component.html#componentwillreceiveprops). `nextProps` is the next properties `state` is the current container's value. You can use `setState` to change the container's state
+- [`shouldComponentUpdate(nextProps, nextState)`]\(*Function*): Use to check [container should update](https://facebook.github.io/react/docs/react-component.html#shouldcomponentupdate) or not. `nextProps` and `nextState` is the next container's value
+- [`componentWillUpdate(nextProps, nextState)`]\(*Function*): Will be called on [container will update](https://facebook.github.io/react/docs/react-component.html#componentwillupdate). `nextProps` and `nextState` is the next container's value
+- [`componentDidUpdate(prevProps, prevState, setState, curState, curProps)`]\(*Function*): Will be called on [container did update](https://facebook.github.io/react/docs/react-component.html#componentdidupdate). `prevProps` and `prevState` is the preview container's value. Also transmit the `currState`, `curProps` for usage. You can use `setState` to change the container's state
+- [`componentWillUnmount(state, props)`]\(*Function*): Will be called on [container will unmount](https://facebook.github.io/react/docs/react-component.html#componentwillunmount). `state` and `props` is the current container's value. Help you to clearup container.
 
 ## Contribute
 [![devDependency Status][david-dm-dev-image]][david-dm-dev-url]
