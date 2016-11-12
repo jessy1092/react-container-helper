@@ -1,3 +1,19 @@
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/jessy1092/react-container-helper/compare/v0.1.0...v0.2.0) (2016-11-12)
+
+
+### Bug Fixes
+
+* Add eslint to lint the coding style ([1c080a0](https://github.com/jessy1092/react-container-helper/commit/1c080a0))
+* Modify the example webpack config ([140212b](https://github.com/jessy1092/react-container-helper/commit/140212b))
+
+
+### Features
+
+* Implement the container lifecycle api for control ([cf98b05](https://github.com/jessy1092/react-container-helper/commit/cf98b05))
+
+
+
 <a name="0.1.0"></a>
 # [0.1.0](https://github.com/jessy1092/react-container-helper/compare/6e2a437...v0.1.0) (2016-11-09)
 
