@@ -19,8 +19,8 @@ const mapStateToProps = ({ toggle }) => ({
   toggle,
 });
 
-const mapSetStateToProps = (setState, state) => ({
-  handleClick: () => setState({ toggle: !state.toggle }),
+const mapSetStateToProps = (setState, { toggle }) => ({
+  handleClick: () => setState({ toggle: !toggle }),
 });
 
 export const ToggleButton = contain(initState, mapStateToProps, mapSetStateToProps)(Button);

@@ -27,22 +27,22 @@ You can see the simple example on [example](./example)
 ```js
 import {contain} from 'react-container-helper';
 
-const Button = ({toggle, handleClick}) => (
+const Button = ({ toggle, handleClick }) => (
   <button onClick={handleClick}>
-    {toggle ? "true" : "false"}
+    {toggle ? 'true' : 'false'}
   </button>
 );
 
 const initState = () => ({
-  toggle: false
+  toggle: false,
 });
 
-const mapStateToProps = (state, props) => ({
-  toggle: state.toggle
+const mapStateToProps = ({ toggle }) => ({
+  toggle,
 });
 
-const mapSetStateToProps = (setState, state, props) => ({
-  handleClick: () => setState({ toggle: !state.toggle })
+const mapSetStateToProps = (setState, { toggle }) => ({
+  handleClick: () => setState({ toggle: !toggle }),
 });
 
 const ToggleButton = contain(initState, mapStateToProps, mapSetStateToProps)(Button);
