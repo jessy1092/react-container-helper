@@ -24,7 +24,7 @@ export const contain = (
 
     constructor(props) {
       super(props);
-      this.state = initState();
+      this.state = typeof initState !== 'undefined' ? initState() : {};
 
       this.setState = this.setState.bind(this);
     }
@@ -62,8 +62,8 @@ export const contain = (
     }
 
     render() {
-      const newProps = mapStateToProps !== 'undefined' ? mapStateToProps(this.state, this.props) : {};
-      const setStateProps = mapSetStateToProps !== 'undefined' ? mapSetStateToProps(this.setState, this.state, this.props) : {};
+      const newProps = typeof mapStateToProps !== 'undefined' ? mapStateToProps(this.state, this.props) : {};
+      const setStateProps = typeof mapSetStateToProps !== 'undefined' ? mapSetStateToProps(this.setState, this.state, this.props) : {};
 
       return (
         <Component {...this.props} {...newProps} {...setStateProps} />
