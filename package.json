@@ -25,9 +25,10 @@
   "license": "MIT",
   "scripts": {
     "start": "gulp dev",
-    "test": "npm run lint",
+    "test": "npm run lint && npm run jest",
     "prepublish": "gulp transpile",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "jest": "jest"
   },
   "engines": {
     "node": ">=4"
@@ -39,6 +40,7 @@
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.0",
+    "babel-jest": "^17.0.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-3": "^6.17.0",
@@ -48,6 +50,8 @@
     "eslint-plugin-jsx-a11y": "2.2.3",
     "eslint-plugin-react": "^6.6.0",
     "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2"
+    "gulp-babel": "^6.1.2",
+    "jest": "^17.0.0",
+    "react-test-renderer": "^15.3.2"
   }
 }
