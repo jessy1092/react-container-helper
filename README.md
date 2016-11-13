@@ -1,6 +1,6 @@
 react-container-helper
 =============
-[![npm][npm-image]][npm-url] [![Build Status][travis-ci-image]][travis-ci-url] [![Dependency Status][david-dm-image]][david-dm-url]
+[![npm][npm-image]][npm-url] [![Build Status][travis-ci-image]][travis-ci-url] [![Dependency Status][david-dm-image]][david-dm-url] [![Coverage Status][coverage-status-image]][coverage-status-url]
 
 Help to generate react container component easily and functionally. Powered by Higher-Order Components.
 
@@ -156,3 +156,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 [david-dm-url]: https://david-dm.org/jessy1092/react-container-helper
 [david-dm-dev-image]: https://img.shields.io/david/dev/jessy1092/react-container-helper.svg?style=flat-square
 [david-dm-dev-url]: https://david-dm.org/jessy1092/react-container-helper#info=devDependencies
+
+[coverage-status-image]: https://img.shields.io/coveralls/jessy1092/react-container-helper.svg?style=flat-square
+[coverage-status-url]: https://coveralls.io/r/jessy1092/react-container-helper

@@ -6,8 +6,9 @@ node_modules/
 .travis.yml
 .babelrc
 *.log
+coverage/
+gulpfile.babel.js
+example/
 
 # Use Transpile file for publish
 src/
-gulpfile.babel.js
-example/
