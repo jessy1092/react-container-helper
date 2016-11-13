@@ -1,3 +1,13 @@
+<a name="0.2.1"></a>
+## [0.2.1](https://github.com/jessy1092/react-container-helper/compare/v0.2.0...v0.2.1) (2016-11-13)
+
+
+### Bug Fixes
+
+* Let contain can transmit the undefined arguments([96fad02](https://github.com/jessy1092/react-container-helper/commit/96fad02))
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/jessy1092/react-container-helper/compare/v0.1.0...v0.2.0) (2016-11-12)
 
