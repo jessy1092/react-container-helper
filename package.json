@@ -55,7 +55,6 @@
     "jest": "^17.0.0",
     "react-addons-test-utils": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-test-renderer": "^15.3.2",
-    "sinon": "^1.17.6"
+    "react-test-renderer": "^15.3.2"
   }
 }
