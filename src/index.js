@@ -17,7 +17,8 @@ export const contain = (
   Component,
 ) => {
   const displayName = Component.displayName || Component.name || 'Component';
-  const componentLifecycle = Object.assign({}, defaultLifecycle, setLifecycle());
+  const newLifecycle = typeof setLifecycle !== 'undefined' ? setLifecycle() : {};
+  const componentLifecycle = Object.assign({}, defaultLifecycle, newLifecycle);
 
   class ContainerComponent extends React.Component {
 
@@ -61,8 +62,8 @@ export const contain = (
     }
 
     render() {
-      const newProps = mapStateToProps(this.state, this.props);
-      const setStateProps = mapSetStateToProps(this.setState, this.state, this.props);
+      const newProps = mapStateToProps !== 'undefined' ? mapStateToProps(this.state, this.props) : {};
+      const setStateProps = mapSetStateToProps !== 'undefined' ? mapSetStateToProps(this.setState, this.state, this.props) : {};
 
       return (
         <Component {...this.props} {...newProps} {...setStateProps} />
