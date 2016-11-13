@@ -36,3 +36,49 @@ test('Container willUnmount function should be called on unMount', () => {
   wrapper.unmount();
   expect(willUnmount.mock.calls.length).toEqual(1);
 });
+
+test('Container willMount function should be called with state and props', () => {
+  const willMount = jest.fn();
+
+  const initState = () => ({
+    toggle: false,
+  });
+
+  const mapStateToProps = ({ toggle }) => ({
+    toggle,
+  });
+
+  const setLifecycle = () => ({
+    componentWillMount: willMount,
+  });
+
+  const MountButton = contain(initState, mapStateToProps, undefined, setLifecycle)(Button);
+  mount(<MountButton check={false} />);
+
+  expect(willMount.mock.calls).toEqual(
+    [[{ toggle: false }, { check: false }]],
+  );
+});
+
+test('Container didMount function should be called with setState, state and props', () => {
+  const didMount = jest.fn();
+
+  const initState = () => ({
+    toggle: false,
+  });
+
+  const mapStateToProps = ({ toggle }) => ({
+    toggle,
+  });
+
+  const setLifecycle = () => ({
+    componentDidMount: didMount,
+  });
+
+  const MountButton = contain(initState, mapStateToProps, undefined, setLifecycle)(Button);
+  mount(<MountButton check={false} />);
+
+  expect(didMount.mock.calls[0].slice(1)).toEqual(
+    [{ toggle: false }, { check: false }],
+  );
+});
