@@ -25,6 +25,7 @@
   "license": "MIT",
   "scripts": {
     "start": "gulp dev",
+    "test": "npm run lint",
     "prepublish": "gulp transpile",
     "lint": "eslint ."
   },
