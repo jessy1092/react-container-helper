@@ -24,13 +24,15 @@ const mapStateToProps = ({ date }) => ({
 const mapSetStateToProps = () => {};
 
 const setLifecycle = () => ({
-  componentDidMount(setState) {
+  componentDidMount({ setState }) {
     const timerID = setInterval(
-      () => setState({ timerID, date: new Date() }),
+      () => setState(() => ({ date: new Date() })),
       1000,
     );
+    setState(() => ({ timerID }));
   },
-  componentWillUnmount({ timerID }) {
+  componentWillUnmount({ getState }) {
+    const { timerID } = getState();
     clearInterval(timerID);
   },
 });
