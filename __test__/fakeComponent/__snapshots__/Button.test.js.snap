@@ -1,27 +1,33 @@
-exports[`test Button changes state when clicked 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button changes state when clicked 1`] = `
 <button
-  onClick={[Function]}>
+  onClick={[Function]}
+>
   false
 </button>
 `;
 
-exports[`test Button changes state when clicked 2`] = `
+exports[`Button changes state when clicked 2`] = `
 <button
-  onClick={[Function]}>
+  onClick={[Function]}
+>
   true
 </button>
 `;
 
-exports[`test Button container's properties should be map to Button  1`] = `
+exports[`Button container's properties should be map to Button  1`] = `
 <button
-  onClick={undefined}>
+  onClick={undefined}
+>
   false
 </button>
 `;
 
-exports[`test Button container's state should be map to Button  1`] = `
+exports[`Button container's state should be map to Button  1`] = `
 <button
-  onClick={undefined}>
+  onClick={undefined}
+>
   true
 </button>
 `;
