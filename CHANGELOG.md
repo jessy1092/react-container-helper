@@ -1,3 +1,15 @@
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/jessy1092/react-container-helper/compare/v0.2.3...v0.3.0) (2017-04-15)
+
+
+### Features
+
+* Add getState, getProps API into componentWillUpdate, shouldComponentUpdate lifecycle ([7b24530](https://github.com/jessy1092/react-container-helper/commit/7b24530))
+* Add new API, getState, getProps, setState into setLifecycle ([e1ef500](https://github.com/jessy1092/react-container-helper/commit/e1ef500))
+* Remove mapStateToProps method, just use mapSetStateToProps for simply mapping state, props, setState to component ([dda7ac8](https://github.com/jessy1092/react-container-helper/commit/dda7ac8))
+
+
+
 <a name="0.2.3"></a>
 ## [0.2.3](https://github.com/jessy1092/react-container-helper/compare/v0.2.2...v0.2.3) (2017-04-15)
 
