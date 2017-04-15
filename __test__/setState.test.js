@@ -64,8 +64,6 @@ test('Container willUpdate function should be not called with nextProps and next
 });
 
 test('Container didUpdate function should be not called with nextProps, nextState, setState, curState and curProps on setState', () => {
-  const didUpdate = jest.fn();
-
   const initState = () => ({
     toggle: false,
   });
@@ -75,17 +73,17 @@ test('Container didUpdate function should be not called with nextProps, nextStat
   });
 
   const setLifecycle = () => ({
-    componentDidUpdate: didUpdate,
+    componentDidUpdate: (prevProps, prevState, { setState, getState, getProps }) => {
+      expect(prevProps).toEqual({ check: false });
+      expect(prevState).toEqual({ toggle: false });
+      expect(typeof setState).toBe('function');
+      expect(getProps()).toEqual({ check: false });
+      expect(getState()).toEqual({ toggle: true });
+    },
   });
 
   const StateButton = contain(initState, mapStateToProps, undefined, setLifecycle)(Button);
   const wrapper = mount(<StateButton check={false} />);
 
   wrapper.setState({ toggle: true });
-  expect(didUpdate.mock.calls[0].slice(0, 2)).toEqual(
-    [{ check: false }, { toggle: false }],
-  );
-  expect(didUpdate.mock.calls[0].slice(3)).toEqual(
-    [{ toggle: true }, { check: false }],
-  );
 });

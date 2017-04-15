@@ -27,20 +27,31 @@ export const contain = (
       this.state = typeof initState !== 'undefined' ? initState() : {};
 
       this.setState = this.setState.bind(this);
+      this.getState = this.getState.bind(this);
+      this.getProps = this.getProps.bind(this);
     }
 
     componentWillMount() {
-      componentLifecycle.componentWillMount(this.state, this.props);
+      componentLifecycle.componentWillMount({
+        getState: this.getState,
+        getProps: this.getProps,
+      });
     }
 
     componentDidMount() {
-      componentLifecycle.componentDidMount(this.setState, this.state, this.props);
+      componentLifecycle.componentDidMount({
+        setState: this.setState,
+        getState: this.getState,
+        getProps: this.getProps,
+      });
     }
 
     componentWillReceiveProps(nextProps) {
-      componentLifecycle.componentWillReceiveProps(
-        nextProps, this.setState, this.state,
-      );
+      componentLifecycle.componentWillReceiveProps(nextProps, {
+        setState: this.setState,
+        getState: this.getState,
+        getProps: this.getProps,
+      });
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -53,12 +64,26 @@ export const contain = (
 
     componentDidUpdate(prevProps, prevState) {
       componentLifecycle.componentDidUpdate(
-        prevProps, prevState, this.setState, this.state, this.props,
-      );
+        prevProps, prevState, {
+          setState: this.setState,
+          getState: this.getState,
+          getProps: this.getProps,
+        });
     }
 
     componentWillUnmount() {
-      componentLifecycle.componentWillUnmount(this.state, this.props);
+      componentLifecycle.componentWillUnmount({
+        getState: this.getState,
+        getProps: this.getProps,
+      });
+    }
+
+    getState() {
+      return this.state;
+    }
+
+    getProps() {
+      return this.props;
     }
 
     render() {

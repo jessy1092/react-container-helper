@@ -47,9 +47,7 @@ test('Container willUpdate, didUpdate function should not be called if shouldCom
   expect(didUpdate.mock.calls.length).toEqual(0);
 });
 
-test('Container willReceiveProps function should be called with setState, state and nextProps on properties change', () => {
-  const willReceiveProps = jest.fn();
-
+test('Container willReceiveProps function should be called with nextProps and get the state, old properties on properties change ', () => {
   const initState = () => ({
     toggle: false,
   });
@@ -59,15 +57,18 @@ test('Container willReceiveProps function should be called with setState, state 
   });
 
   const setLifecycle = () => ({
-    componentWillReceiveProps: willReceiveProps,
+    componentWillReceiveProps: (nextProps, { setState, getState, getProps }) => {
+      expect(nextProps).toEqual({ check: true });
+      expect(typeof setState).toBe('function');
+      expect(getState()).toEqual({ toggle: false });
+      expect(getProps()).toEqual({ check: false });
+    },
   });
 
   const PropsButton = contain(initState, mapStateToProps, undefined, setLifecycle)(Button);
   const wrapper = mount(<PropsButton check={false} />);
 
   wrapper.setProps({ check: true });
-  expect(willReceiveProps.mock.calls[0][0]).toEqual({ check: true });
-  expect(willReceiveProps.mock.calls[0][2]).toEqual({ toggle: false });
 });
 
 test('Container willUpdate function should be called with setState, state and nextProps on properties change', () => {
@@ -95,8 +96,6 @@ test('Container willUpdate function should be called with setState, state and ne
 });
 
 test('Container didUpdate function should be called with nextProps, nextState, setState, curState and curProp on properties change', () => {
-  const didUpdate = jest.fn();
-
   const initState = () => ({
     toggle: false,
   });
@@ -106,17 +105,17 @@ test('Container didUpdate function should be called with nextProps, nextState, s
   });
 
   const setLifecycle = () => ({
-    componentDidUpdate: didUpdate,
+    componentDidUpdate: (prevProps, prevState, { setState, getState, getProps }) => {
+      expect(prevProps).toEqual({ check: false });
+      expect(prevState).toEqual({ toggle: false });
+      expect(typeof setState).toBe('function');
+      expect(getProps()).toEqual({ check: true });
+      expect(getState()).toEqual({ toggle: false });
+    },
   });
 
   const PropsButton = contain(initState, mapStateToProps, undefined, setLifecycle)(Button);
   const wrapper = mount(<PropsButton check={false} />);
 
   wrapper.setProps({ check: true });
-  expect(didUpdate.mock.calls[0].slice(0, 2)).toEqual(
-    [{ check: false }, { toggle: false }],
-  );
-  expect(didUpdate.mock.calls[0].slice(3)).toEqual(
-    [{ toggle: false }, { check: true }],
-  );
 });
