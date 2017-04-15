@@ -15,14 +15,11 @@ const initState = () => ({
   toggle: false,
 });
 
-const mapStateToProps = ({ toggle }) => ({
+const mapSetStateToProps = ({ toggle }, _, setState) => ({
   toggle,
-});
-
-const mapSetStateToProps = (setState, { toggle }) => ({
   handleClick: () => setState({ toggle: !toggle }),
 });
 
-export const ToggleButton = contain(initState, mapStateToProps, mapSetStateToProps)(Button);
+export const ToggleButton = contain(initState, mapSetStateToProps)(Button);
 
 export default Button;

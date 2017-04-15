@@ -17,7 +17,7 @@ test('Container willUpdate, didUpdate function should be called on setState', ()
     componentDidUpdate: didUpdate,
   });
 
-  const StateButton = contain(undefined, undefined, undefined, setLifecycle)(Button);
+  const StateButton = contain(undefined, undefined, setLifecycle)(Button);
   const wrapper = mount(<StateButton />);
 
   wrapper.setState({});
@@ -38,7 +38,7 @@ test('Container willUpdate, didUpdate function should be not called if shouldCom
     componentDidUpdate: didUpdate,
   });
 
-  const StateButton = contain(undefined, undefined, undefined, setLifecycle)(Button);
+  const StateButton = contain(undefined, undefined, setLifecycle)(Button);
   const wrapper = mount(<StateButton />);
 
   wrapper.setState({});
@@ -63,7 +63,7 @@ test('Container shouldComponentUpdate function should be called with nextProps, 
     },
   });
 
-  const StateButton = contain(initState, undefined, undefined, setLifecycle)(Button);
+  const StateButton = contain(initState, undefined, setLifecycle)(Button);
   const wrapper = mount(<StateButton check={false} />);
 
   wrapper.setState({ toggle: true });
@@ -83,7 +83,7 @@ test('Container willUpdate function should be called with nextProps, nextState, 
     },
   });
 
-  const StateButton = contain(initState, undefined, undefined, setLifecycle)(Button);
+  const StateButton = contain(initState, undefined, setLifecycle)(Button);
   const wrapper = mount(<StateButton check={false} />);
 
   wrapper.setState({ toggle: true });
@@ -94,7 +94,7 @@ test('Container didUpdate function should be called with nextProps, nextState, s
     toggle: false,
   });
 
-  const mapStateToProps = ({ toggle }) => ({
+  const mapSetStateToProps = ({ toggle }) => ({
     toggle,
   });
 
@@ -108,7 +108,7 @@ test('Container didUpdate function should be called with nextProps, nextState, s
     },
   });
 
-  const StateButton = contain(initState, mapStateToProps, undefined, setLifecycle)(Button);
+  const StateButton = contain(initState, mapSetStateToProps, setLifecycle)(Button);
   const wrapper = mount(<StateButton check={false} />);
 
   wrapper.setState({ toggle: true });

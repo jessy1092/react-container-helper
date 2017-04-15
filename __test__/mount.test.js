@@ -15,7 +15,7 @@ test('Container willMount, didMount function should be called on mount', () => {
     componentDidMount: didMount,
   });
 
-  const MountButton = contain(undefined, undefined, undefined, setLifecycle)(Button);
+  const MountButton = contain(undefined, undefined, setLifecycle)(Button);
   mount(<MountButton />);
 
   expect(willMount.mock.calls.length).toEqual(1);
@@ -29,7 +29,7 @@ test('Container willUnmount function should be called on unMount', () => {
     componentWillUnmount: willUnmount,
   });
 
-  const MountButton = contain(undefined, undefined, undefined, setLifecycle)(Button);
+  const MountButton = contain(undefined, undefined, setLifecycle)(Button);
   const wrapper = mount(<MountButton />);
 
   expect(willUnmount.mock.calls.length).toEqual(0);
@@ -42,7 +42,7 @@ test('Container willMount function should be called and should be get the correc
     toggle: false,
   });
 
-  const mapStateToProps = ({ toggle }) => ({
+  const mapSetStateToProps = ({ toggle }) => ({
     toggle,
   });
 
@@ -53,7 +53,7 @@ test('Container willMount function should be called and should be get the correc
     },
   });
 
-  const MountButton = contain(initState, mapStateToProps, undefined, setLifecycle)(Button);
+  const MountButton = contain(initState, mapSetStateToProps, setLifecycle)(Button);
   mount(<MountButton check={false} />);
 });
 
@@ -62,7 +62,7 @@ test('Container didMount function should be called with setState, state and prop
     toggle: false,
   });
 
-  const mapStateToProps = ({ toggle }) => ({
+  const mapSetStateToProps = ({ toggle }) => ({
     toggle,
   });
 
@@ -74,6 +74,6 @@ test('Container didMount function should be called with setState, state and prop
     },
   });
 
-  const MountButton = contain(initState, mapStateToProps, undefined, setLifecycle)(Button);
+  const MountButton = contain(initState, mapSetStateToProps, setLifecycle)(Button);
   mount(<MountButton check={false} />);
 });

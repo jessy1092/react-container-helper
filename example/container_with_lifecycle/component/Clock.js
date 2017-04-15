@@ -17,11 +17,9 @@ const initState = () => ({
   timerID: '',
 });
 
-const mapStateToProps = ({ date }) => ({
+const mapSetStateToProps = ({ date }) => ({
   date,
 });
-
-const mapSetStateToProps = () => {};
 
 const setLifecycle = () => ({
   componentDidMount({ setState }) {
@@ -38,7 +36,7 @@ const setLifecycle = () => ({
 });
 
 export const ClockContainer = contain(
-  initState, mapStateToProps, mapSetStateToProps, setLifecycle,
+  initState, mapSetStateToProps, setLifecycle,
 )(Clock);
 
 export default Clock;

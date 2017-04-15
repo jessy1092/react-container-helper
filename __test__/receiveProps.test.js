@@ -17,7 +17,7 @@ test('Container willReceiveProps, willUpdate, didUpdate function should be calle
     componentDidUpdate: didUpdate,
   });
 
-  const PropsButton = contain(undefined, undefined, undefined, setLifecycle)(Button);
+  const PropsButton = contain(undefined, undefined, setLifecycle)(Button);
   const wrapper = mount(<PropsButton check={false} />);
 
   wrapper.setProps({ check: true });
@@ -38,7 +38,7 @@ test('Container willUpdate, didUpdate function should not be called if shouldCom
     componentDidUpdate: didUpdate,
   });
 
-  const PropsButton = contain(undefined, undefined, undefined, setLifecycle)(Button);
+  const PropsButton = contain(undefined, undefined, setLifecycle)(Button);
   const wrapper = mount(<PropsButton check={false} />);
 
   wrapper.setProps({ check: true });
@@ -52,7 +52,7 @@ test('Container willReceiveProps function should be called with nextProps and ge
     toggle: false,
   });
 
-  const mapStateToProps = ({ toggle }) => ({
+  const mapSetStateToProps = ({ toggle }) => ({
     toggle,
   });
 
@@ -65,7 +65,7 @@ test('Container willReceiveProps function should be called with nextProps and ge
     },
   });
 
-  const PropsButton = contain(initState, mapStateToProps, undefined, setLifecycle)(Button);
+  const PropsButton = contain(initState, mapSetStateToProps, setLifecycle)(Button);
   const wrapper = mount(<PropsButton check={false} />);
 
   wrapper.setProps({ check: true });
@@ -76,7 +76,7 @@ test('Container shouldComponentUpdate function should be called with nextProps, 
     toggle: false,
   });
 
-  const mapStateToProps = ({ toggle }) => ({
+  const mapSetStateToProps = ({ toggle }) => ({
     toggle,
   });
 
@@ -91,7 +91,7 @@ test('Container shouldComponentUpdate function should be called with nextProps, 
     },
   });
 
-  const PropsButton = contain(initState, mapStateToProps, undefined, setLifecycle)(Button);
+  const PropsButton = contain(initState, mapSetStateToProps, setLifecycle)(Button);
   const wrapper = mount(<PropsButton check={false} />);
 
   wrapper.setProps({ check: true });
@@ -102,7 +102,7 @@ test('Container willUpdate function should be called with nextState, nextProps a
     toggle: false,
   });
 
-  const mapStateToProps = ({ toggle }) => ({
+  const mapSetStateToProps = ({ toggle }) => ({
     toggle,
   });
 
@@ -115,7 +115,7 @@ test('Container willUpdate function should be called with nextState, nextProps a
     },
   });
 
-  const PropsButton = contain(initState, mapStateToProps, undefined, setLifecycle)(Button);
+  const PropsButton = contain(initState, mapSetStateToProps, setLifecycle)(Button);
   const wrapper = mount(<PropsButton check={false} />);
 
   wrapper.setProps({ check: true });
@@ -126,7 +126,7 @@ test('Container didUpdate function should be called with nextProps, nextState, s
     toggle: false,
   });
 
-  const mapStateToProps = ({ toggle }) => ({
+  const mapSetStateToProps = ({ toggle }) => ({
     toggle,
   });
 
@@ -140,7 +140,7 @@ test('Container didUpdate function should be called with nextProps, nextState, s
     },
   });
 
-  const PropsButton = contain(initState, mapStateToProps, undefined, setLifecycle)(Button);
+  const PropsButton = contain(initState, mapSetStateToProps, setLifecycle)(Button);
   const wrapper = mount(<PropsButton check={false} />);
 
   wrapper.setProps({ check: true });

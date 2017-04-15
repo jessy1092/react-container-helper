@@ -14,8 +14,7 @@ Inspire by
 ## Feature
 
 - [x] Use `initState` to set container's initial state
-- [x] Use `mapStateToProps` to map container's state to component's properties
-- [x] Use `mapSetStateToProps` to map container's setState to component's method properties
+- [x] Use `mapSetStateToProps` to map container's state, props or setState to component's properties
 - [x] Support container's life cycle method
 - [ ] Support purecomponent.
 
@@ -37,15 +36,12 @@ const initState = () => ({
   toggle: false,
 });
 
-const mapStateToProps = ({ toggle }) => ({
+const mapSetStateToProps = ({ toggle }, _, setState) => ({
   toggle,
-});
-
-const mapSetStateToProps = (setState, { toggle }) => ({
   handleClick: () => setState({ toggle: !toggle }),
 });
 
-const ToggleButton = contain(initState, mapStateToProps, mapSetStateToProps)(Button);
+const ToggleButton = contain(initState, mapSetStateToProps)(Button);
 
 ReactDOM.render(
   <ToggleButton />,
@@ -92,13 +88,12 @@ ReactDOM.render(
 
 ## API
 
-### contain(initState, mapStateToProps, mapSetStateToProps, setLifecycle)
+### contain(initState, mapSetStateToProps, setLifecycle)
 
 #### Arguments
 
 - [`initState()`]\(*Function*): Use to set container initial state
-- [`mapStateToProps(state, props)`]\(*Function*): Help to map container's state to component's properties
-- [`mapSetStateToProps(setState, state, props)`]\(*Function*): Help to map container's setState to component's method properties
+- [`mapSetStateToProps(state, props, setState)`]\(*Function*): Help to map container's state, props or setState to component's properties
 - [`setLifecycle()`]\(*Function*): Help to set container's lifecycle. Return the lifecycle object
 
 #### Container's Lifecycle
@@ -126,7 +121,7 @@ Please use the `setLifecycle` to set and return the lifecycle object which defin
 
 The MIT License (MIT)
 
-Copyright (c) 2016 Lee  < jessy1092@gmail.com >
+Copyright (c) 2016-2017 Lee  < jessy1092@gmail.com >
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
