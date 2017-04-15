@@ -1,6 +1,6 @@
 
 import React    from 'react';
-import renderer from 'react-test-renderer';
+import { mount, render } from 'enzyme';
 
 import { contain } from '../../src';
 import Button, { ToggleButton } from './Button';
@@ -15,11 +15,11 @@ test('Button container\'s state should be map to Button ', () => {
 
   const ToggleConstButton = contain(initState, mapStateToProps)(Button);
 
-  const component = renderer.create(
+  const component = render(
     <ToggleConstButton />,
   );
 
-  expect(component.toJSON()).toMatchSnapshot();
+  expect(component).toMatchSnapshot();
 });
 
 test('Button container\'s properties should be map to Button ', () => {
@@ -29,21 +29,19 @@ test('Button container\'s properties should be map to Button ', () => {
 
   const ToggleConstButton = contain(undefined, mapStateToProps)(Button);
 
-  const component = renderer.create(
+  const component = render(
     <ToggleConstButton check={false} />,
   );
 
-  expect(component.toJSON()).toMatchSnapshot();
+  expect(component).toMatchSnapshot();
 });
 
 test('Button changes state when clicked', () => {
-  const component = renderer.create(
+  const component = mount(
     <ToggleButton />,
   );
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+  expect(component).toMatchSnapshot();
 
-  tree.props.onClick();
-  tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+  component.find('button').simulate('click');
+  expect(component).toMatchSnapshot();
 });

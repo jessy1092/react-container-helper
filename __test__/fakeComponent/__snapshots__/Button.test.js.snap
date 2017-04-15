@@ -1,33 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button changes state when clicked 1`] = `
-<button
-  onClick={[Function]}
->
-  false
-</button>
+<Contain(Button)>
+  <Button
+    handleClick={[Function]}
+    toggle={false}
+  >
+    <button
+      onClick={[Function]}
+    >
+      false
+    </button>
+  </Button>
+</Contain(Button)>
 `;
 
 exports[`Button changes state when clicked 2`] = `
-<button
-  onClick={[Function]}
->
-  true
-</button>
+<Contain(Button)>
+  <Button
+    handleClick={[Function]}
+    toggle={true}
+  >
+    <button
+      onClick={[Function]}
+    >
+      true
+    </button>
+  </Button>
+</Contain(Button)>
 `;
 
 exports[`Button container's properties should be map to Button  1`] = `
-<button
-  onClick={undefined}
->
+<button>
   false
 </button>
 `;
 
 exports[`Button container's state should be map to Button  1`] = `
-<button
-  onClick={undefined}
->
+<button>
   true
 </button>
 `;
