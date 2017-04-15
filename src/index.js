@@ -55,11 +55,17 @@ export const contain = (
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-      return componentLifecycle.shouldComponentUpdate(nextProps, nextState);
+      return componentLifecycle.shouldComponentUpdate(nextProps, nextState, {
+        getState: this.getState,
+        getProps: this.getProps,
+      });
     }
 
     componentWillUpdate(nextProps, nextState) {
-      componentLifecycle.componentWillUpdate(nextProps, nextState);
+      componentLifecycle.componentWillUpdate(nextProps, nextState, {
+        getState: this.getState,
+        getProps: this.getProps,
+      });
     }
 
     componentDidUpdate(prevProps, prevState) {

@@ -71,9 +71,7 @@ test('Container willReceiveProps function should be called with nextProps and ge
   wrapper.setProps({ check: true });
 });
 
-test('Container willUpdate function should be called with setState, state and nextProps on properties change', () => {
-  const willUpdate = jest.fn();
-
+test('Container shouldComponentUpdate function should be called with nextProps, nextState and get the state, old properties on properties change ', () => {
   const initState = () => ({
     toggle: false,
   });
@@ -83,19 +81,47 @@ test('Container willUpdate function should be called with setState, state and ne
   });
 
   const setLifecycle = () => ({
-    componentWillUpdate: willUpdate,
+    shouldComponentUpdate: (nextProps, nextState, { getState, getProps }) => {
+      expect(nextProps).toEqual({ check: true });
+      expect(nextState).toEqual({ toggle: false });
+      expect(getState()).toEqual({ toggle: false });
+      expect(getProps()).toEqual({ check: false });
+
+      return true;
+    },
   });
 
   const PropsButton = contain(initState, mapStateToProps, undefined, setLifecycle)(Button);
   const wrapper = mount(<PropsButton check={false} />);
 
   wrapper.setProps({ check: true });
-  expect(willUpdate.mock.calls).toEqual(
-    [[{ check: true }, { toggle: false }]],
-  );
 });
 
-test('Container didUpdate function should be called with nextProps, nextState, setState, curState and curProp on properties change', () => {
+test('Container willUpdate function should be called with nextState, nextProps and getState, getProps on properties change', () => {
+  const initState = () => ({
+    toggle: false,
+  });
+
+  const mapStateToProps = ({ toggle }) => ({
+    toggle,
+  });
+
+  const setLifecycle = () => ({
+    componentWillUpdate: (nextProps, nextState, { getState, getProps }) => {
+      expect(nextProps).toEqual({ check: true });
+      expect(nextState).toEqual({ toggle: false });
+      expect(getProps()).toEqual({ check: false });
+      expect(getState()).toEqual({ toggle: false });
+    },
+  });
+
+  const PropsButton = contain(initState, mapStateToProps, undefined, setLifecycle)(Button);
+  const wrapper = mount(<PropsButton check={false} />);
+
+  wrapper.setProps({ check: true });
+});
+
+test('Container didUpdate function should be called with nextProps, nextState, setState, getState and getProps on properties change', () => {
   const initState = () => ({
     toggle: false,
   });
