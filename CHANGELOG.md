@@ -1,3 +1,14 @@
+<a name="0.2.3"></a>
+## [0.2.3](https://github.com/jessy1092/react-container-helper/compare/v0.2.2...v0.2.3) (2017-04-15)
+
+
+### Bug Fixes
+
+* Update jest and enzyme version ([662fc82](https://github.com/jessy1092/react-container-helper/commit/662fc82))
+* Upgrade react version to 15.5.x ([4cc1d4e](https://github.com/jessy1092/react-container-helper/commit/4cc1d4e))
+
+
+
 <a name="0.2.2"></a>
 ## [0.2.2](https://github.com/jessy1092/react-container-helper/compare/v0.2.1...v0.2.2) (2016-11-13)
 
