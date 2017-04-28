@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const defaultLifecycle = {
@@ -15,15 +14,12 @@ export const contain = (
   initState = () => ({}),
   mapSetStateToProps = () => ({}),
   setLifecycle = () => defaultLifecycle,
-) => (
-  Component,
-) => {
+) => (Component) => {
   const displayName = Component.displayName || Component.name || 'Component';
   const newLifecycle = setLifecycle();
   const componentLifecycle = Object.assign({}, defaultLifecycle, newLifecycle);
 
   class ContainerComponent extends React.Component {
-
     constructor(props) {
       super(props);
       this.state = initState();
@@ -71,12 +67,11 @@ export const contain = (
     }
 
     componentDidUpdate(prevProps, prevState) {
-      componentLifecycle.componentDidUpdate(
-        prevProps, prevState, {
-          setState: this.setState,
-          getState: this.getState,
-          getProps: this.getProps,
-        });
+      componentLifecycle.componentDidUpdate(prevProps, prevState, {
+        setState: this.setState,
+        getState: this.getState,
+        getProps: this.getProps,
+      });
     }
 
     componentWillUnmount() {
@@ -97,9 +92,7 @@ export const contain = (
     render() {
       const setStateProps = mapSetStateToProps(this.state, this.props, this.setState);
 
-      return (
-        <Component {...this.props} {...setStateProps} />
-      );
+      return <Component {...this.props} {...setStateProps} />;
     }
   }
 
