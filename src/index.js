@@ -92,7 +92,7 @@ export const contain = (
     render() {
       const setStateProps = mapSetStateToProps(this.state, this.props, this.setState);
 
-      return <Component {...this.props} {...setStateProps} />;
+      return <Component {...setStateProps} />;
     }
   }
 
