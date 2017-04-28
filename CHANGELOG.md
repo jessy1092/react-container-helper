@@ -1,3 +1,13 @@
+<a name="0.3.1"></a>
+## [0.3.1](https://github.com/jessy1092/react-container-helper/compare/v0.3.0...v0.3.1) (2017-04-28)
+
+
+### Bug Fixes
+
+* Should not pass parent component properties to child. Let user defined ([08a6074](https://github.com/jessy1092/react-container-helper/commit/08a6074))
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/jessy1092/react-container-helper/compare/v0.2.3...v0.3.0) (2017-04-15)
 
