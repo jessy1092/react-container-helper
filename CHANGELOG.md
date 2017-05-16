@@ -1,3 +1,13 @@
+<a name="0.3.2"></a>
+## [0.3.2](https://github.com/jessy1092/react-container-helper/compare/v0.3.1...v0.3.2) (2017-05-16)
+
+
+### Bug Fixes
+
+* Pass properties to initState ([aaf4aa5](https://github.com/jessy1092/react-container-helper/commit/aaf4aa5))
+
+
+
 <a name="0.3.1"></a>
 ## [0.3.1](https://github.com/jessy1092/react-container-helper/compare/v0.3.0...v0.3.1) (2017-04-28)
 
