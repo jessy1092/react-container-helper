@@ -22,7 +22,7 @@ export const contain = (
   class ContainerComponent extends React.Component {
     constructor(props) {
       super(props);
-      this.state = initState();
+      this.state = initState(props);
 
       this.setState = this.setState.bind(this);
       this.getState = this.getState.bind(this);

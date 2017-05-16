@@ -92,7 +92,7 @@ ReactDOM.render(
 
 #### Arguments
 
-- [`initState()`]\(*Function*): Use to set container initial state
+- [`initState(props)`]\(*Function*): Use to set container initial state
 - [`mapSetStateToProps(state, props, setState)`]\(*Function*): Help to map container's state, props or setState to component's properties
 - [`setLifecycle()`]\(*Function*): Help to set container's lifecycle. Return the lifecycle object
 
