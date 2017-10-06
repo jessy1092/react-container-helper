@@ -34,8 +34,8 @@
     "node": ">=4"
   },
   "main": "lib/index.js",
-  "dependencies": {
-    "react": "^15.5.4"
+  "peerDependencies": {
+    "react": "^15.0.0 || ^16.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -47,14 +47,15 @@
     "coveralls": "^2.13.0",
     "enzyme": "^2.8.2",
     "enzyme-to-json": "^1.5.1",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.3",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.4.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "jest": "^19.0.2",
+    "react": "^15.5.4",
     "react-addons-test-utils": "^15.5.1",
     "react-dom": "^15.5.4",
     "react-test-renderer": "^15.5.4"
@@ -65,8 +66,6 @@
       "<rootDir>/__test__/",
       "<rootDir>/node_modules/"
     ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ]
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
   }
 }
