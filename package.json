@@ -1,7 +1,7 @@
 {
   "name": "react-container-helper",
   "description": "Help to generate react container component easily and functionally",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "keywords": [
     "react",
     "react container",

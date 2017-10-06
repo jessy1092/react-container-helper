@@ -1,3 +1,13 @@
+<a name="0.3.3"></a>
+## [0.3.3](https://github.com/jessy1092/react-container-helper/compare/v0.3.2...v0.3.3) (2017-10-06)
+
+
+### Bug Fixes
+
+* Correct the dependencies to support react 16 and upgrade test environment. issue [#1](https://github.com/jessy1092/react-container-helper/issues/1) ([cc7b8ac](https://github.com/jessy1092/react-container-helper/commit/cc7b8ac))
+
+
+
 <a name="0.3.2"></a>
 ## [0.3.2](https://github.com/jessy1092/react-container-helper/compare/v0.3.1...v0.3.2) (2017-05-16)
 
